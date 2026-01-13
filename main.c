@@ -3,68 +3,40 @@
 
 int main()
 {
-    int A,B,C,D,E,F,a,i,EF,ABC,bolum,BC,AB,n,asal,sayi,j;
+    int i,n=7,sonuc,j,son,array[]={6,14,43,53,64,32,24};
 
-    for(i=0;i<=9;i++){
-        EF=i*i;
+    sonuc=1;
 
-    bolum=EF/10;
-    E=bolum;
-    F=EF%10;
+    son=0;
 
-        for(j=5;j<=9;j++){
-        ABC=j*j*j;
+    printf("ba?langiç dizisi: ");
 
-        bolum=ABC/100;
-        A=bolum;
+    for(i=0;i<n;i++){
+        printf("%d ",array[i]);
+    }
 
-        BC=ABC%100;
-
-        bolum=BC/10;
-        B=bolum;
-        C=BC%10;
-
-        for(D=1; D <= 9; D++) {
-        sayi=D*100+E*10+F*1;
-        asal = 1;
-        for(n = 2; n < sayi; n++) {
-            if(sayi % n == 0) {
-                asal = 0;
-                break;
-            }
-        }
-        if(asal == 0) {
-                continue;
-
-        }
-        if(A==E+1){
-
+    for(i=0;i<n;i++){
+        if(array[i]%2==0){
+            array[i]=0;
         }
         else{
-                continue;
+            array[i]=1;
         }
-
-        AB=A*10+B*1;
-        if(AB%3==0){
-
-        }
-        else{
-            continue;
-        }
-
-    if(A==B||A==C||A==D||A==E||A==F||
-       B==C||B==D||B==E||B==F||
-       C==D||C==E||C==F||
-       D==E||D==F||
-       D==F ){
-            continue;
-        }
-
-        printf("sonuc=%d%d%d%d%d%d\n",A,B,C,D,E,F);
     }
+    printf("\n parite dizisi: ");
+
+    for(i=0;i<n;i++){
+        printf("%d ",array[i]);
     }
 
+    for(i=0;i<n;i++){
+        for(j=n-1;j>=0;j--){
+            sonuc*=2;
+        }
+        son+=array[i]*sonuc;
     }
+    printf("\n guvenlik kodu: %d \n",son);
 
     return 0;
 }
+
